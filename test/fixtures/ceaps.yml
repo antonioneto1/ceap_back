@@ -1,0 +1,61 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  txNomeParlamentar: MyString
+  ideCadastro: 1
+  nuCarteiraParlamentar: MyString
+  sgUF: MyString
+  nuLegislatura: MyString
+  sgPartido: MyString
+  txtFornecedor: MyString
+  txtCNPJCPF: MyString
+  txtNumero: MyString
+  indTipoDocumento: MyString
+  vlrGlosa: 1.5
+  vlrLiquido: 1.5
+  vlrRestituicao: 1.5
+  codLegislatura: MyString
+  numSubCota: MyString
+  txtDescricao: MyString
+  numEspecificacaoSubCota: MyString
+  txtDescricaoEspecificacao: MyString
+  datEmissao: 2022-05-03
+  vlrDocumento: MyString
+  numMes: 1
+  numAno: 1
+  numParcela: 1
+  nuDeputadoId: MyString
+  txtPassageiro: MyString
+  txtTrecho: MyString
+  numLote: MyString
+  numRessarcimento: MyString
+
+two:
+  txNomeParlamentar: MyString
+  ideCadastro: 1
+  nuCarteiraParlamentar: MyString
+  sgUF: MyString
+  nuLegislatura: MyString
+  sgPartido: MyString
+  txtFornecedor: MyString
+  txtCNPJCPF: MyString
+  txtNumero: MyString
+  indTipoDocumento: MyString
+  vlrGlosa: 1.5
+  vlrLiquido: 1.5
+  vlrRestituicao: 1.5
+  codLegislatura: MyString
+  numSubCota: MyString
+  txtDescricao: MyString
+  numEspecificacaoSubCota: MyString
+  txtDescricaoEspecificacao: MyString
+  datEmissao: 2022-05-03
+  vlrDocumento: MyString
+  numMes: 1
+  numAno: 1
+  numParcela: 1
+  nuDeputadoId: MyString
+  txtPassageiro: MyString
+  txtTrecho: MyString
+  numLote: MyString
+  numRessarcimento: MyString
