@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nomeparlamentar:</strong>
+  <%= @deputado.nomeParlamentar %>
+</p>
+
+<p>
+  <strong>Cpf:</strong>
+  <%= @deputado.cpf %>
+</p>
+
+<p>
+  <strong>Iddeputado:</strong>
+  <%= @deputado.idDeputado %>
+</p>
+
+<p>
+  <strong>Numerocarteiraparlamentar:</strong>
+  <%= @deputado.numeroCarteiraParlamentar %>
+</p>
+
+<p>
+  <strong>Legislatura:</strong>
+  <%= @deputado.legislatura %>
+</p>
+
+<p>
+  <strong>Siglauf:</strong>
+  <%= @deputado.siglaUF %>
+</p>
+
+<p>
+  <strong>Siglapartido:</strong>
+  <%= @deputado.siglaPartido %>
+</p>
+
+<p>
+  <strong>Codigolegislatura:</strong>
+  <%= @deputado.codigoLegislatura %>
+</p>
+
+<p>
+  <strong>Numerodeputadoid:</strong>
+  <%= @deputado.numeroDeputadoID %>
+</p>
+
+<p>
+  <strong>Urlphoto:</strong>
+  <%= @deputado.urlPhoto %>
+</p>
+
+<p>
+  <strong>Despesas ids:</strong>
+  <%= @deputado.despesas_ids %>
+</p>
+
+<%= link_to 'Edit', edit_deputado_path(@deputado) %> |
+<%= link_to 'Back', deputados_path %>

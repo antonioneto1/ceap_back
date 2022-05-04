@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Deputados ids:</strong>
+  <%= @ceap.deputados_ids %>
+</p>
+
+<p>
+  <strong>Exercicio:</strong>
+  <%= @ceap.exercicio %>
+</p>
+
+<p>
+  <strong>Total gastos:</strong>
+  <%= @ceap.total_gastos %>
+</p>
+
+<%= link_to 'Edit', edit_ceap_path(@ceap) %> |
+<%= link_to 'Back', ceaps_path %>

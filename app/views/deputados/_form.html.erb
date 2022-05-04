@@ -1,0 +1,72 @@
+<%= form_with(model: deputado) do |form| %>
+  <% if deputado.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(deputado.errors.count, "error") %> prohibited this deputado from being saved:</h2>
+
+      <ul>
+        <% deputado.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :nomeParlamentar %>
+    <%= form.text_field :nomeParlamentar %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cpf %>
+    <%= form.text_field :cpf %>
+  </div>
+
+  <div class="field">
+    <%= form.label :idDeputado %>
+    <%= form.number_field :idDeputado %>
+  </div>
+
+  <div class="field">
+    <%= form.label :numeroCarteiraParlamentar %>
+    <%= form.text_field :numeroCarteiraParlamentar %>
+  </div>
+
+  <div class="field">
+    <%= form.label :legislatura %>
+    <%= form.number_field :legislatura %>
+  </div>
+
+  <div class="field">
+    <%= form.label :siglaUF %>
+    <%= form.text_field :siglaUF %>
+  </div>
+
+  <div class="field">
+    <%= form.label :siglaPartido %>
+    <%= form.text_field :siglaPartido %>
+  </div>
+
+  <div class="field">
+    <%= form.label :codigoLegislatura %>
+    <%= form.number_field :codigoLegislatura %>
+  </div>
+
+  <div class="field">
+    <%= form.label :numeroDeputadoID %>
+    <%= form.text_field :numeroDeputadoID %>
+  </div>
+
+  <div class="field">
+    <%= form.label :urlPhoto %>
+    <%= form.text_field :urlPhoto %>
+  </div>
+
+  <div class="field">
+    <%= form.label :despesas_ids %>
+    <%= form.text_field :despesas_ids %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

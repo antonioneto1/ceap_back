@@ -1,0 +1,35 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  deputado_id: 1
+  foranecedor: MyString
+  cnpjCPF: MyString
+  numero: MyString
+  tipoDocumento: MyString
+  dataEmissao: MyString
+  valorDocumento: MyString
+  valorGlosa: MyString
+  valorLiquido: MyString
+  mes: 1
+  ano: 1
+  ressarcimento: MyString
+  restituicao: MyString
+  idDocumento: MyString
+  urlDocumento: MyString
+
+two:
+  deputado_id: 1
+  foranecedor: MyString
+  cnpjCPF: MyString
+  numero: MyString
+  tipoDocumento: MyString
+  dataEmissao: MyString
+  valorDocumento: MyString
+  valorGlosa: MyString
+  valorLiquido: MyString
+  mes: 1
+  ano: 1
+  ressarcimento: MyString
+  restituicao: MyString
+  idDocumento: MyString
+  urlDocumento: MyString

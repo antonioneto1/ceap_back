@@ -1,0 +1,32 @@
+<%= form_with(model: ceap) do |form| %>
+  <% if ceap.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(ceap.errors.count, "error") %> prohibited this ceap from being saved:</h2>
+
+      <ul>
+        <% ceap.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :deputados_ids %>
+    <%= form.text_field :deputados_ids %>
+  </div>
+
+  <div class="field">
+    <%= form.label :exercicio %>
+    <%= form.text_field :exercicio %>
+  </div>
+
+  <div class="field">
+    <%= form.label :total_gastos %>
+    <%= form.text_field :total_gastos %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

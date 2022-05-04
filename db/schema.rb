@@ -10,37 +10,48 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_03_190037) do
+ActiveRecord::Schema.define(version: 2022_05_04_125914) do
 
   create_table "ceaps", force: :cascade do |t|
-    t.string "txNomeParlamentar"
-    t.integer "ideCadastro"
-    t.string "nuCarteiraParlamentar"
-    t.string "sgUF"
-    t.string "nuLegislatura"
-    t.string "sgPartido"
-    t.string "txtFornecedor"
-    t.string "txtCNPJCPF"
-    t.string "txtNumero"
-    t.string "indTipoDocumento"
-    t.float "vlrGlosa"
-    t.float "vlrLiquido"
-    t.float "vlrRestituicao"
-    t.string "codLegislatura"
-    t.string "numSubCota"
-    t.string "txtDescricao"
-    t.string "numEspecificacaoSubCota"
-    t.string "txtDescricaoEspecificacao"
-    t.date "datEmissao"
-    t.string "vlrDocumento"
-    t.integer "numMes"
-    t.integer "numAno"
-    t.integer "numParcela"
-    t.string "nuDeputadoId"
-    t.string "txtPassageiro"
-    t.string "txtTrecho"
-    t.string "numLote"
-    t.string "numRessarcimento"
+    t.string "deputados_ids"
+    t.string "exercicio"
+    t.string "total_gastos"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "deputados", force: :cascade do |t|
+    t.string "nomeParlamentar"
+    t.string "cpf"
+    t.integer "idDeputado"
+    t.string "numeroCarteiraParlamentar"
+    t.integer "legislatura"
+    t.string "siglaUF"
+    t.string "siglaPartido"
+    t.integer "codigoLegislatura"
+    t.string "numeroDeputadoID"
+    t.string "urlPhoto"
+    t.string "despesas_ids"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "despesas", force: :cascade do |t|
+    t.integer "deputado_id"
+    t.string "foranecedor"
+    t.string "cnpjCPF"
+    t.string "numero"
+    t.string "tipoDocumento"
+    t.string "dataEmissao"
+    t.string "valorDocumento"
+    t.string "valorGlosa"
+    t.string "valorLiquido"
+    t.integer "mes"
+    t.integer "ano"
+    t.string "ressarcimento"
+    t.string "restituicao"
+    t.string "idDocumento"
+    t.string "urlDocumento"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -1,0 +1,79 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Deputado:</strong>
+  <%= @despesa.deputado_id %>
+</p>
+
+<p>
+  <strong>Foranecedor:</strong>
+  <%= @despesa.foranecedor %>
+</p>
+
+<p>
+  <strong>Cnpjcpf:</strong>
+  <%= @despesa.cnpjCPF %>
+</p>
+
+<p>
+  <strong>Numero:</strong>
+  <%= @despesa.numero %>
+</p>
+
+<p>
+  <strong>Tipodocumento:</strong>
+  <%= @despesa.tipoDocumento %>
+</p>
+
+<p>
+  <strong>Dataemissao:</strong>
+  <%= @despesa.dataEmissao %>
+</p>
+
+<p>
+  <strong>Valordocumento:</strong>
+  <%= @despesa.valorDocumento %>
+</p>
+
+<p>
+  <strong>Valorglosa:</strong>
+  <%= @despesa.valorGlosa %>
+</p>
+
+<p>
+  <strong>Valorliquido:</strong>
+  <%= @despesa.valorLiquido %>
+</p>
+
+<p>
+  <strong>Mes:</strong>
+  <%= @despesa.mes %>
+</p>
+
+<p>
+  <strong>Ano:</strong>
+  <%= @despesa.ano %>
+</p>
+
+<p>
+  <strong>Ressarcimento:</strong>
+  <%= @despesa.ressarcimento %>
+</p>
+
+<p>
+  <strong>Restituicao:</strong>
+  <%= @despesa.restituicao %>
+</p>
+
+<p>
+  <strong>Iddocumento:</strong>
+  <%= @despesa.idDocumento %>
+</p>
+
+<p>
+  <strong>Urldocumento:</strong>
+  <%= @despesa.urlDocumento %>
+</p>
+
+<%= link_to 'Edit', edit_despesa_path(@despesa) %> |
+<%= link_to 'Back', despesas_path %>

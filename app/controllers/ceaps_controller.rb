@@ -65,6 +65,6 @@ class CeapsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def ceap_params
-      params.require(:ceap).permit(:txNomeParlamentar, :ideCadastro, :nuCarteiraParlamentar, :sgUF, :nuLegislatura, :sgPartido, :txtFornecedor, :txtCNPJCPF, :txtNumero, :indTipoDocumento, :vlrGlosa, :vlrLiquido, :vlrRestituicao, :codLegislatura, :numSubCota, :txtDescricao, :numEspecificacaoSubCota, :txtDescricaoEspecificacao, :datEmissao, :vlrDocumento, :numMes, :numAno, :numParcela, :nuDeputadoId, :txtPassageiro, :txtTrecho, :numLote, :numRessarcimento)
+      params.require(:ceap).permit(:deputados_ids, :exercicio, :total_gastos)
     end
 end

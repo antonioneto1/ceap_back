@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+
+ .min-width-btn {
+  min-width:100px;
+  margin:1px;
+}

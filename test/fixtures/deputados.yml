@@ -1,0 +1,27 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nomeParlamentar: MyString
+  cpf: MyString
+  idDeputado: 1
+  numeroCarteiraParlamentar: MyString
+  legislatura: 1
+  siglaUF: MyString
+  siglaPartido: MyString
+  codigoLegislatura: 1
+  numeroDeputadoID: MyString
+  urlPhoto: MyString
+  despesas_ids: MyString
+
+two:
+  nomeParlamentar: MyString
+  cpf: MyString
+  idDeputado: 1
+  numeroCarteiraParlamentar: MyString
+  legislatura: 1
+  siglaUF: MyString
+  siglaPartido: MyString
+  codigoLegislatura: 1
+  numeroDeputadoID: MyString
+  urlPhoto: MyString
+  despesas_ids: MyString
