@@ -11,7 +11,7 @@ class CreateDeputados < ActiveRecord::Migration[6.1]
       t.integer :codigoLegislatura
       t.string :numeroDeputadoID
       t.string :urlPhoto
-      t.string :despesas_ids
+      t.integer :deputados_id
 
       t.timestamps
     end

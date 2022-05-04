@@ -18,7 +18,7 @@ class DespesasTest < ApplicationSystemTestCase
     fill_in "Cnpjcpf", with: @despesa.cnpjCPF
     fill_in "Dataemissao", with: @despesa.dataEmissao
     fill_in "Deputado", with: @despesa.deputado_id
-    fill_in "Foranecedor", with: @despesa.foranecedor
+    fill_in "Fornecedor", with: @despesa.fornecedor
     fill_in "Iddocumento", with: @despesa.idDocumento
     fill_in "Mes", with: @despesa.mes
     fill_in "Numero", with: @despesa.numero
@@ -43,7 +43,7 @@ class DespesasTest < ApplicationSystemTestCase
     fill_in "Cnpjcpf", with: @despesa.cnpjCPF
     fill_in "Dataemissao", with: @despesa.dataEmissao
     fill_in "Deputado", with: @despesa.deputado_id
-    fill_in "Foranecedor", with: @despesa.foranecedor
+    fill_in "Fornecedor", with: @despesa.fornecedor
     fill_in "Iddocumento", with: @despesa.idDocumento
     fill_in "Mes", with: @despesa.mes
     fill_in "Numero", with: @despesa.numero

@@ -2,7 +2,7 @@
 
 one:
   deputado_id: 1
-  foranecedor: MyString
+  fornecedor: MyString
   cnpjCPF: MyString
   numero: MyString
   tipoDocumento: MyString
@@ -19,7 +19,7 @@ one:
 
 two:
   deputado_id: 1
-  foranecedor: MyString
+  fornecedor: MyString
   cnpjCPF: MyString
   numero: MyString
   tipoDocumento: MyString

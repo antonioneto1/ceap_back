@@ -6,7 +6,7 @@
   <thead>
     <tr>
       <th>Deputado</th>
-      <th>Foranecedor</th>
+      <th>fornecedor</th>
       <th>Cnpjcpf</th>
       <th>Numero</th>
       <th>Tipodocumento</th>
@@ -28,7 +28,7 @@
     <% @despesas.each do |despesa| %>
       <tr>
         <td><%= despesa.deputado_id %></td>
-        <td><%= despesa.foranecedor %></td>
+        <td><%= despesa.fornecedor %></td>
         <td><%= despesa.cnpjCPF %></td>
         <td><%= despesa.numero %></td>
         <td><%= despesa.tipoDocumento %></td>

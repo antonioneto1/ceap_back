@@ -13,9 +13,9 @@
 ActiveRecord::Schema.define(version: 2022_05_04_125914) do
 
   create_table "ceaps", force: :cascade do |t|
-    t.string "deputados_ids"
-    t.string "exercicio"
-    t.string "total_gastos"
+    t.integer "deputados_id"
+    t.integer "exercicio"
+    t.float "total_gastos"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -31,25 +31,25 @@ ActiveRecord::Schema.define(version: 2022_05_04_125914) do
     t.integer "codigoLegislatura"
     t.string "numeroDeputadoID"
     t.string "urlPhoto"
-    t.string "despesas_ids"
+    t.integer "deputados_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "despesas", force: :cascade do |t|
     t.integer "deputado_id"
-    t.string "foranecedor"
+    t.string "fornecedor"
     t.string "cnpjCPF"
     t.string "numero"
     t.string "tipoDocumento"
     t.string "dataEmissao"
-    t.string "valorDocumento"
-    t.string "valorGlosa"
-    t.string "valorLiquido"
+    t.float "valorDocumento"
+    t.float "valorGlosa"
+    t.float "valorLiquido"
     t.integer "mes"
     t.integer "ano"
-    t.string "ressarcimento"
-    t.string "restituicao"
+    t.float "ressarcimento"
+    t.float "restituicao"
     t.string "idDocumento"
     t.string "urlDocumento"
     t.datetime "created_at", precision: 6, null: false

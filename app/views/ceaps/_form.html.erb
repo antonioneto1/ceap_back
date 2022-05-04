@@ -11,19 +11,11 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :deputados_ids %>
-    <%= form.text_field :deputados_ids %>
-  </div>
+  <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg">
 
   <div class="field">
     <%= form.label :exercicio %>
-    <%= form.text_field :exercicio %>
-  </div>
-
-  <div class="field">
-    <%= form.label :total_gastos %>
-    <%= form.text_field :total_gastos %>
+    <%= form.number_field :exercicio %>
   </div>
 
   <div class="actions">

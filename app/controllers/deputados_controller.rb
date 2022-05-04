@@ -1,5 +1,5 @@
 class DeputadosController < ApplicationController
-  before_action :set_deputado, only: %i[ show edit update destroy ]
+  before_action :set_deputado, only: %i[ show edit update destroy]
 
   # GET /deputados or /deputados.json
   def index

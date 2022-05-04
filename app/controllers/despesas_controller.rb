@@ -22,7 +22,7 @@ class DespesasController < ApplicationController
   # POST /despesas or /despesas.json
   def create
     @despesa = Despesa.new(despesa_params)
-
+    byebug
     respond_to do |format|
       if @despesa.save
         format.html { redirect_to despesa_url(@despesa), notice: "Despesa was successfully created." }
@@ -65,6 +65,6 @@ class DespesasController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def despesa_params
-      params.require(:despesa).permit(:deputado_id, :foranecedor, :cnpjCPF, :numero, :tipoDocumento, :dataEmissao, :valorDocumento, :valorGlosa, :valorLiquido, :mes, :ano, :ressarcimento, :restituicao, :idDocumento, :urlDocumento)
+      params.require(:despesa).permit(:deputado_id, :fornecedor, :cnpjCPF, :numero, :tipoDocumento, :dataEmissao, :valorDocumento, :valorGlosa, :valorLiquido, :mes, :ano, :ressarcimento, :restituicao, :idDocumento, :urlDocumento)
     end
 end
