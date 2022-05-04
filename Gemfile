@@ -23,6 +23,7 @@ gem 'bootstrap', '~> 5.1.3'
 gem 'jquery-rails'
 gem 'mimemagic', '~> 0.3.10'
 gem 'httparty'
+gem 'sidekiq'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
