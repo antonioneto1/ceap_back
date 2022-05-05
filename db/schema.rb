@@ -10,34 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_04_125914) do
+ActiveRecord::Schema.define(version: 2022_05_05_114643) do
 
-  create_table "ceaps", force: :cascade do |t|
-    t.integer "deputados_id"
-    t.integer "exercicio"
-    t.float "total_gastos"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
+# Could not dump table "ceaps" because of following StandardError
+#   Unknown type 'has_many' for column 'deputados'
 
-  create_table "deputados", force: :cascade do |t|
-    t.string "nomeParlamentar"
-    t.string "cpf"
-    t.integer "idDeputado"
-    t.string "numeroCarteiraParlamentar"
-    t.integer "legislatura"
-    t.string "siglaUF"
-    t.string "siglaPartido"
-    t.integer "codigoLegislatura"
-    t.string "numeroDeputadoID"
-    t.string "urlPhoto"
-    t.integer "deputados_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
+# Could not dump table "deputados" because of following StandardError
+#   Unknown type '' for column 'despesas'
 
   create_table "despesas", force: :cascade do |t|
-    t.integer "deputado_id"
     t.string "fornecedor"
     t.string "cnpjCPF"
     t.string "numero"
@@ -54,6 +35,10 @@ ActiveRecord::Schema.define(version: 2022_05_04_125914) do
     t.string "urlDocumento"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "deputado_id", null: false
+    t.index ["deputado_id"], name: "index_despesas_on_deputado_id"
   end
 
+  add_foreign_key "deputados", "ceaps"
+  add_foreign_key "despesas", "deputados"
 end

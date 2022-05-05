@@ -1,16 +1,29 @@
 class ImporteCsvController < ApplicationController
   skip_before_action :verify_authenticity_token
+  require 'csv'
 
   def importe_deputados
     if params[:file_csv].present?
       file = params[:file_csv].tempfile.path
-      leitura_csv(file)
+      Thread.new do
+        ceap = Ceap.new(ceap_params)
+        deputados = leitura_csv(file)
+        if deputados.present?
+          deputados.each do |deputado|
+            ceap.deputados << deputado
+          end
+          ceap.save
+        end
+      end
+      format.html { redirect_to ceaps_url, notice: "O Seu arqivo está sendo importado, embreve voce podera ver-lo" }
+      format.json { head :no_content }
     else
       return render :json => {message: "O arquvi precisa está presente"}, status: 400
     end
   end
 
   def leitura_csv(file)
+    deputados_ids = []
     File.open(file).each do |r|
       r = r.join(",") if r.is_a?(Array)
       r = r.split(";")
@@ -32,6 +45,7 @@ class ImporteCsvController < ApplicationController
         depu = Deputado.new(dados_deputado)
         depu.id = depu.idDeputado
         depu.save
+        deputados << depu
       end
 
       unless Despesa.where(idDocumento: JSON.parse(r[29]), deputado_id: JSON.parse(r[2])).first
@@ -55,5 +69,6 @@ class ImporteCsvController < ApplicationController
         Despesa.create(dados_despesa)
       end
     end
+    return deputados
   end
 end

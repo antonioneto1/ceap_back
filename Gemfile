@@ -24,6 +24,7 @@ gem 'jquery-rails'
 gem 'mimemagic', '~> 0.3.10'
 gem 'httparty'
 gem 'sidekiq'
+gem "paperclip"
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'

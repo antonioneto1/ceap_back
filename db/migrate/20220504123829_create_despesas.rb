@@ -1,7 +1,6 @@
 class CreateDespesas < ActiveRecord::Migration[6.1]
   def change
     create_table :despesas do |t|
-      t.integer :deputado_id
       t.string :fornecedor
       t.string :cnpjCPF
       t.string :numero

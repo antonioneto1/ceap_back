@@ -22,7 +22,6 @@ class DespesasController < ApplicationController
   # POST /despesas or /despesas.json
   def create
     @despesa = Despesa.new(despesa_params)
-    byebug
     respond_to do |format|
       if @despesa.save
         format.html { redirect_to despesa_url(@despesa), notice: "Despesa was successfully created." }
