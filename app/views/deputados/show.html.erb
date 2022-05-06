@@ -41,10 +41,6 @@
   </p>
 
   <p>
-    <strong>Cod.Legislatura:</strong>
-    <%= @deputado.codigoLegislatura %>
-  </p>
-  <p>
     <strong>N.Deputado:</strong>
     <%= @deputado.numeroDeputadoID %>
   </p>
@@ -57,6 +53,19 @@
   </figure>
 </div>
 
+<div class="container-fluid">
+  <strong>Maior despesa:</strong>
+  <p>
+    <strong>Valor:</strong>
+    <%= "R$: #{@deputado.maior_despesa.valorLiquido.to_f}"%>
+  </p>
+
+  <p>
+    <strong>Detalhes:</strong>
+    <%= link_to '<i class="bi bi-arrow-left-short"></i> Detalhes'.html_safe, @deputado.maior_despesa %></td>
+  </p>
+   
+</div>
 
 <div class="container-fluid">
   <h1> Gastos</h1>
@@ -79,7 +88,7 @@
           <% if despesa.urlDocumento.present? %>
             <td><a class="btn btn-primary" href="<%= despesa.urlDocumento %>">PDF</td>
           <% else %>
-          <td>Sem PDF</td>
+            <td>Sem PDF</td>
           <% end %>
           <td><%= link_to '<i class="bi bi-arrow-left-short"></i> Detalhes'.html_safe, despesa, class: 'btn btn-primary' %></td>
         </tr>

@@ -9,7 +9,8 @@ class Deputado < ApplicationRecord
   end
 
   def maior_despesa
-    return "R$: #{self.despesas.maximum(:valorLiquido).to_f.round(2)}"
+    despesa = despesas.sort_by(&:valorLiquido).reverse.first
+    return despesa
   end
 
   def total

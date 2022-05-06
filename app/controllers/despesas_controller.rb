@@ -1,5 +1,5 @@
 class DespesasController < ApplicationController
-  before_action :set_despesa, only: %i[ show edit update destroy ]
+  before_action :set_despesa, only: %i[ show  ]
 
   # GET /despesas or /despesas.json
   def index
@@ -15,10 +15,6 @@ class DespesasController < ApplicationController
     @despesa = Despesa.new
   end
 
-  # GET /despesas/1/edit
-  def edit
-  end
-
   # POST /despesas or /despesas.json
   def create
     @despesa = Despesa.new(despesa_params)
@@ -30,29 +26,6 @@ class DespesasController < ApplicationController
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @despesa.errors, status: :unprocessable_entity }
       end
-    end
-  end
-
-  # PATCH/PUT /despesas/1 or /despesas/1.json
-  def update
-    respond_to do |format|
-      if @despesa.update(despesa_params)
-        format.html { redirect_to despesa_url(@despesa), notice: "Despesa was successfully updated." }
-        format.json { render :show, status: :ok, location: @despesa }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @despesa.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /despesas/1 or /despesas/1.json
-  def destroy
-    @despesa.destroy
-
-    respond_to do |format|
-      format.html { redirect_to despesas_url, notice: "Despesa was successfully destroyed." }
-      format.json { head :no_content }
     end
   end
 
