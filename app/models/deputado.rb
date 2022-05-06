@@ -1,5 +1,5 @@
 class Deputado < ApplicationRecord
-  has_many :despesas, class_name: 'Despesa', dependent: :delete_all
+  has_many :despesas, class_name: 'Despesa',dependent: :destroy
   belongs_to :ceap, class_name: 'Ceap', foreign_key: 'ceap_id'
 
 
@@ -10,6 +10,10 @@ class Deputado < ApplicationRecord
 
   def maior_despesa
     return "R$: #{self.despesas.maximum(:valorLiquido).to_f.round(2)}"
+  end
+
+  def total
+    return self.despesas.sum(:valorLiquido).to_f.round(2)
   end
 
   def porcent_gastos

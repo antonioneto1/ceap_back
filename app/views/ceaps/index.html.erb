@@ -1,28 +1,37 @@
 <p id="notice"><%= notice %></p>
+<div class="container-fluid">
+  <h1>Exercicios</h1>
 
-<h1>Exercicios</h1>
-
-<table class="table">
-  <thead>
-    <tr>
-      <th>Ano do Exercicio</th>
-      <th>Total gastos</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @ceaps.each do |ceap| %>
+  <table class="table table-dark table-striped">
+    <thead>
       <tr>
-        <td><%= ceap.exercicio %></td>
-        <td><%= ceap.total_gastos %></td>
-        <td><%= link_to 'Show', ceap %></td>
-        <td><%= link_to 'Destroy', ceap, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Ano do Exercicio</th>
+        <th>Total Gastos</th>
+        <th>Detalhes</th>
+        <th>Status</th>
+        <th>Excluir</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @ceaps.each do |ceap| %>
+        <tr class="table-light">
+          <td><%= ceap.exercicio %></td>
+          <td><%= "R$: #{ceap.total_gastos}" %></td>
+          <td><%= link_to 'Detalhes', ceap, class: "btn btn-info"%></td>
+          <% if ceap.concluido? %>
+            <td><span class="btn btn-success" %>Concluido</td>
+          <% else %>
+            <td><span class="btn btn-warning" %>Processando</td>
+          <% end %>
+          <td><%= link_to 'Apagar', ceap, class:"btn btn-danger",method: :delete, data: { confirm: 'Tem certeza?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <br>
 
-<%= link_to 'New Ceap', new_ceap_path %>
+  <%= link_to 'Novo Exercicio', new_ceap_path, class: "btn btn-primary btn-sm" %>
+</div>
+

@@ -78,6 +78,8 @@
           <td><%= despesa.dataEmissao.to_date %></td>
           <% if despesa.urlDocumento.present? %>
             <td><a class="btn btn-primary" href="<%= despesa.urlDocumento %>">PDF</td>
+          <% else %>
+          <td>Sem PDF</td>
           <% end %>
           <td><%= link_to '<i class="bi bi-arrow-left-short"></i> Detalhes'.html_safe, despesa, class: 'btn btn-primary' %></td>
         </tr>

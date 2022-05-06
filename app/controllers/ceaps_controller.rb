@@ -1,7 +1,7 @@
 class CeapsController < ApplicationController
   before_action :set_ceap, only: %i[ show edit update destroy]
   before_action :set_deputados, only: %i[ show ]
-  skip_before_action :verify_authenticity_token
+  #skip_before_action :verify_authenticity_token
 
   # GET /ceaps or /ceaps.json
   def index
@@ -19,6 +19,7 @@ class CeapsController < ApplicationController
 
   # POST /ceaps or /ceaps.json
   def create
+    ceap_params[:total_gastos] = 0
     @ceap = Ceap.new(ceap_params)
     if params[:file_csv].present?
       file = params[:file_csv].tempfile.path
@@ -27,15 +28,14 @@ class CeapsController < ApplicationController
         if deputados.present?
           deputados.each do |deputado|
             @ceap.deputados << deputado
-            @ceap.total_gastos += deputado.despesas.sum(:valorLiquido).to_f.round(2)
           end
+          @ceap.total_gastos = @ceap.total
           @ceap.save(validate: false)
         end
       end
-      format.html { redirect_to root_path, notice: "O Seu arquivo está sendo importado, embreve voce podera ver-lo" }
-      format.json { head :no_content }
+      redirect_to ceaps_path, notice: 'Seu arquivo está sendo lido em backdround, embreve voce poderar ver-lo'
     else
-      return render :json => {message: "O arquvi precisa está presente"}, status: 400
+      redirect_to ceaps_path, notice: 'Exercio excluido com sucesso'
     end
   end
 
@@ -44,7 +44,8 @@ class CeapsController < ApplicationController
     File.open(file).each do |r|
       r = r.join(",") if r.is_a?(Array)
       r = r.split(";")
-      next if r[5] == "\"sgUF\"" || !r[5] == "\"CE\""
+
+      next if r[5].nil? || (r[5] == "\"sgUF\"" || !r[5].include?("\"CE\""))
       deputado = Deputado.where(id: JSON.parse(r[2])).first
       unless deputado
         dados_deputado = {
@@ -95,11 +96,7 @@ class CeapsController < ApplicationController
   # DELETE /ceaps/1 or /ceaps/1.json
   def destroy
     @ceap.destroy
-
-    respond_to do |format|
-      format.html { redirect_to ceaps_url, notice: "Ceap was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    redirect_to ceaps_url, notice: 'Exercio excluido com sucesso'
   end
 
   private
@@ -110,11 +107,11 @@ class CeapsController < ApplicationController
 
     def set_deputados
       @ceap = Ceap.find(params[:id])
-      @deputados = @ceap.deputados
+      @deputados = @ceap.deputados.sort_by(&:total).reverse
     end
 
     # Only allow a list of trusted parameters through.
     def ceap_params
-      params.require(:ceap).permit(:deputados_ids, :exercicio, :total_gastos, :csv_file)
+      params.require(:ceap).permit(:exercicio, :total_gastos)
     end
 end

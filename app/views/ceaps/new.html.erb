@@ -1,5 +1,6 @@
-<h1>Iportaçao de Arquivo de Ceap</h1>
+<div class="container-fluid">
+  <h1>Legislatura de CSV</h1>
+  <%= render 'form', ceap: @ceap %>
 
-<%= render 'form', ceap: @ceap %>
-
-<%= link_to 'Voltar', ceaps_path %>
+  <%= link_to 'Voltar', ceaps_path, class: "btn btn-info"%>
+</div>
