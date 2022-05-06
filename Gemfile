@@ -26,6 +26,8 @@ gem 'httparty'
 gem 'sidekiq'
 gem "paperclip"
 gem 'bootstrap-sass'
+gem 'glyphicons-rails'
+gem "font-awesome-rails"
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'

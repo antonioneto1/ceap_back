@@ -1,5 +1,6 @@
 class CeapsController < ApplicationController
   before_action :set_ceap, only: %i[ show edit update destroy]
+  before_action :set_deputados, only: %i[ show ]
   skip_before_action :verify_authenticity_token
 
   # GET /ceaps or /ceaps.json
@@ -105,6 +106,11 @@ class CeapsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_ceap
       @ceap = Ceap.find(params[:id])
+    end
+
+    def set_deputados
+      @ceap = Ceap.find(params[:id])
+      @deputados = @ceap.deputados
     end
 
     # Only allow a list of trusted parameters through.

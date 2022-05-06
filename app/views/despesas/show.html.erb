@@ -1,79 +1,48 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Deputado:</strong>
-  <%= @despesa.deputado_id %>
-</p>
+<div class="container-fluid">
 
-<p>
-  <strong>Fornecedor:</strong>
-  <%= @despesa.fornecedor %>
-</p>
+  <p>
+    <strong>Fornecedor:</strong>
+    <%= @despesa.fornecedor %>
+  </p>
 
-<p>
-  <strong>Cnpjcpf:</strong>
-  <%= @despesa.cnpjCPF %>
-</p>
+  <p>
+    <strong>CNPJ/CPF:</strong>
+    <%= @despesa.mask_document(@despesa.cnpjCPF) %>
+  </p>
 
-<p>
-  <strong>Numero:</strong>
-  <%= @despesa.numero %>
-</p>
+  <p>
+    <strong>Numero:</strong>
+    <%= @despesa.numero %>
+  </p>
 
-<p>
-  <strong>Tipodocumento:</strong>
-  <%= @despesa.tipoDocumento %>
-</p>
+  <p>
+    <strong>Data da Emissao:</strong>
+    <%= @despesa.dataEmissao.to_date %>
+  </p>
 
-<p>
-  <strong>Dataemissao:</strong>
-  <%= @despesa.dataEmissao %>
-</p>
+  <p>
+    <strong>Valor:</strong>
+    <%= @despesa.valor_formatado %>
+  </p>
 
-<p>
-  <strong>Valordocumento:</strong>
-  <%= @despesa.valorDocumento %>
-</p>
+  <p>
+    <strong>Mes e Ano:</strong>
+    <%= @despesa.mes_e_ano %>
+  </p>
 
-<p>
-  <strong>Valorglosa:</strong>
-  <%= @despesa.valorGlosa %>
-</p>
+  <p>
+    <strong>Id.Documento:</strong>
+    <%= @despesa.idDocumento %>
+  </p>
+  <% if @despesa.urlDocumento.present? %>
+    <p>
+      <strong>Link Documento:</strong>
+      <a href="<%= @despesa.urlDocumento %>">PDF</a>
+    </p>
+  <% end %>
+</div>
 
-<p>
-  <strong>Valorliquido:</strong>
-  <%= @despesa.valorLiquido %>
-</p>
+<%= link_to 'Voltar', @despesa.deputado, class: "btn btn-info"%>
 
-<p>
-  <strong>Mes:</strong>
-  <%= @despesa.mes %>
-</p>
-
-<p>
-  <strong>Ano:</strong>
-  <%= @despesa.ano %>
-</p>
-
-<p>
-  <strong>Ressarcimento:</strong>
-  <%= @despesa.ressarcimento %>
-</p>
-
-<p>
-  <strong>Restituicao:</strong>
-  <%= @despesa.restituicao %>
-</p>
-
-<p>
-  <strong>Iddocumento:</strong>
-  <%= @despesa.idDocumento %>
-</p>
-
-<p>
-  <strong>Urldocumento:</strong>
-  <%= @despesa.urlDocumento %>
-</p>
-
-<%= link_to 'Edit', edit_despesa_path(@despesa) %> |
-<%= link_to 'Back', despesas_path %>

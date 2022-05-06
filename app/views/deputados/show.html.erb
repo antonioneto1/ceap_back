@@ -3,17 +3,17 @@
 
 <div class="container-fluid">
   <p>
-    <strong>Nomeparlamentar:</strong>
+    <strong>Nome:</strong>
     <%= @deputado.nomeParlamentar %>
   </p>
 
   <p>
-    <strong>Cpf:</strong>
-    <%= @deputado.cpf %>
+    <strong>CPF:</strong>
+    <%= @deputado.mask_document(@deputado.cpf) %>
   </p>
 
   <p>
-    <strong>Iddeputado:</strong>
+    <strong>Deputado ID:</strong>
     <%= @deputado.idDeputado %>
   </p>
 </div>
@@ -21,7 +21,7 @@
 
 <div class="container-fluid">
   <p>
-    <strong>Numerocarteiraparlamentar:</strong>
+    <strong>N Carteira:</strong>
     <%= @deputado.numeroCarteiraParlamentar %>
   </p>
 
@@ -31,21 +31,21 @@
   </p>
 
   <p>
-    <strong>Siglauf:</strong>
+    <strong>UF:</strong>
     <%= @deputado.siglaUF %>
   </p>
 
   <p>
-    <strong>Siglapartido:</strong>
+    <strong>Sigla:</strong>
     <%= @deputado.siglaPartido %>
   </p>
 
   <p>
-    <strong>Codigolegislatura:</strong>
+    <strong>Cod.Legislatura:</strong>
     <%= @deputado.codigoLegislatura %>
   </p>
   <p>
-    <strong>Numerodeputadoid:</strong>
+    <strong>N.Deputado:</strong>
     <%= @deputado.numeroDeputadoID %>
   </p>
 </div>
@@ -53,7 +53,7 @@
 <div class="container-fluid">
   <figure class="figure">
     <%= image_tag @deputado.urlPhoto %>
-    <figcaption class="figure-caption">foto do deputado</figcaption>
+    <figcaption class="figure-caption">Deputado: <%= @deputado.nomeParlamentar %></figcaption>
   </figure>
 </div>
 
@@ -65,6 +65,8 @@
       <tr>
         <th>Valor liquido</th>
         <th>data de emissao</th>
+        <th>PDF</th>
+        <th>Opões</th>
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -74,12 +76,14 @@
         <tr class="table-light">
           <td><%= "R$: #{despesa.valorLiquido.to_f}" %></td>
           <td><%= despesa.dataEmissao.to_date %></td>
-          <td><%= link_to 'Show', despesa %></td>
+          <% if despesa.urlDocumento.present? %>
+            <td><a class="btn btn-primary" href="<%= despesa.urlDocumento %>">PDF</td>
+          <% end %>
+          <td><%= link_to '<i class="bi bi-arrow-left-short"></i> Detalhes'.html_safe, despesa, class: 'btn btn-primary' %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
 </div>
 
-<%= link_to 'Edit', edit_deputado_path(@deputado) %> |
-<%= link_to 'Back', deputados_path %>
+<%= link_to 'Voltar', ceap_path(@deputado.ceap), class: "btn btn-info"%>
