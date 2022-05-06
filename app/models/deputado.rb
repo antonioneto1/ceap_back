@@ -5,6 +5,15 @@ class Deputado < ApplicationRecord
 
 
   def total_despesas
-    self.despesas.sum(:valorLiquido)
+    return "R$: #{self.despesas.sum(:valorLiquido).to_f.round(2)}"
   end
+
+  def maior_despesa
+    return "R$: #{self.despesas.maximum(:valorLiquido).to_f.round(2)}"
+  end
+  
+  def porcent_gastos
+    byebug
+    ceap.total_gastos.to_i - ceap.total_gastos.to_i * total_despesas.to_i/ 100
+  end 
 end

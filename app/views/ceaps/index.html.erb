@@ -2,10 +2,9 @@
 
 <h1>Exercicios</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
-      <th>Deputados ids</th>
       <th>Ano do Exercicio</th>
       <th>Total gastos</th>
       <th colspan="3"></th>
@@ -15,7 +14,6 @@
   <tbody>
     <% @ceaps.each do |ceap| %>
       <tr>
-        <td><%= ceap.deputados_id %></td>
         <td><%= ceap.exercicio %></td>
         <td><%= ceap.total_gastos %></td>
         <td><%= link_to 'Show', ceap %></td>

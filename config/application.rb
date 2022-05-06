@@ -10,6 +10,7 @@ module CeapeBackend
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
+    config.action_controller.include_all_helpers = false
     config.generators do |g|
       g.template_engine :erb
       g.orm :active_record

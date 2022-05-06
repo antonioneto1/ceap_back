@@ -1,59 +1,85 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Nomeparlamentar:</strong>
-  <%= @deputado.nomeParlamentar %>
-</p>
 
-<p>
-  <strong>Cpf:</strong>
-  <%= @deputado.cpf %>
-</p>
+<div class="container-fluid">
+  <p>
+    <strong>Nomeparlamentar:</strong>
+    <%= @deputado.nomeParlamentar %>
+  </p>
 
-<p>
-  <strong>Iddeputado:</strong>
-  <%= @deputado.idDeputado %>
-</p>
+  <p>
+    <strong>Cpf:</strong>
+    <%= @deputado.cpf %>
+  </p>
 
-<p>
-  <strong>Numerocarteiraparlamentar:</strong>
-  <%= @deputado.numeroCarteiraParlamentar %>
-</p>
+  <p>
+    <strong>Iddeputado:</strong>
+    <%= @deputado.idDeputado %>
+  </p>
+</div>
 
-<p>
-  <strong>Legislatura:</strong>
-  <%= @deputado.legislatura %>
-</p>
 
-<p>
-  <strong>Siglauf:</strong>
-  <%= @deputado.siglaUF %>
-</p>
+<div class="container-fluid">
+  <p>
+    <strong>Numerocarteiraparlamentar:</strong>
+    <%= @deputado.numeroCarteiraParlamentar %>
+  </p>
 
-<p>
-  <strong>Siglapartido:</strong>
-  <%= @deputado.siglaPartido %>
-</p>
+  <p>
+    <strong>Legislatura:</strong>
+    <%= @deputado.legislatura %>
+  </p>
 
-<p>
-  <strong>Codigolegislatura:</strong>
-  <%= @deputado.codigoLegislatura %>
-</p>
+  <p>
+    <strong>Siglauf:</strong>
+    <%= @deputado.siglaUF %>
+  </p>
 
-<p>
-  <strong>Numerodeputadoid:</strong>
-  <%= @deputado.numeroDeputadoID %>
-</p>
+  <p>
+    <strong>Siglapartido:</strong>
+    <%= @deputado.siglaPartido %>
+  </p>
 
-<p>
-  <strong>Urlphoto:</strong>
-  <%= @deputado.urlPhoto %>
-</p>
+  <p>
+    <strong>Codigolegislatura:</strong>
+    <%= @deputado.codigoLegislatura %>
+  </p>
+  <p>
+    <strong>Numerodeputadoid:</strong>
+    <%= @deputado.numeroDeputadoID %>
+  </p>
+</div>
 
-<p>
-  <strong>Despesas ids:</strong>
-  <%= @deputado.despesas_ids %>
-</p>
+<div class="container-fluid">
+  <figure class="figure">
+    <%= image_tag @deputado.urlPhoto %>
+    <figcaption class="figure-caption">foto do deputado</figcaption>
+  </figure>
+</div>
+
+
+<div class="container-fluid">
+  <h1> Gastos</h1>
+  <table class="table table-dark table-striped">
+    <thead>
+      <tr>
+        <th>Valor liquido</th>
+        <th>data de emissao</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @deputado.despesas.each do |despesa| %>
+        <tr class="table-light">
+          <td><%= "R$: #{despesa.valorLiquido.to_f}" %></td>
+          <td><%= despesa.dataEmissao.to_date %></td>
+          <td><%= link_to 'Show', despesa %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
 <%= link_to 'Edit', edit_deputado_path(@deputado) %> |
 <%= link_to 'Back', deputados_path %>

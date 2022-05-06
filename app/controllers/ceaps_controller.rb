@@ -26,6 +26,7 @@ class CeapsController < ApplicationController
         if deputados.present?
           deputados.each do |deputado|
             @ceap.deputados << deputado
+            @ceap.total_gastos += deputado.despesas.sum(:valorLiquido).to_f.round(2)
           end
           @ceap.save(validate: false)
         end

@@ -25,6 +25,7 @@ gem 'mimemagic', '~> 0.3.10'
 gem 'httparty'
 gem 'sidekiq'
 gem "paperclip"
+gem 'bootstrap-sass'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
