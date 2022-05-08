@@ -18,7 +18,11 @@
       <% @ceaps.each do |ceap| %>
         <tr class="table-light">
           <td><%= ceap.exercicio %></td>
-          <td><%= "R$: #{ceap.total_gastos}" %></td>
+          <% if ceap.concluido? %>
+            <td><%= "R$: #{ceap.total_gastos}" %></td>
+          <% else %>
+            <td>R$: 0,00</td>
+          <% end %>
           <td><%= link_to 'Detalhes', ceap, class: "btn btn-info"%></td>
           <% if ceap.concluido? %>
             <td><span class="btn btn-success" %>Concluido</td>

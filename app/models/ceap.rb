@@ -1,5 +1,6 @@
 class Ceap < ApplicationRecord
   has_many :deputados, class_name: 'Deputado',dependent: :destroy
+  validates :exercicio, presence: {message: "O Exercicio é obrigatório"}
 
 
   def total
