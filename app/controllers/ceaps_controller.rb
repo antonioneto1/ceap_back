@@ -20,13 +20,17 @@ class CeapsController < ApplicationController
   # POST /ceaps or /ceaps.json
   def create
     if params[:file_csv].present? && ceap_params[:exercicio].present? && params[:email].present?
-      ceap_params[:total_gastos] = 0
-      @ceap = Ceap.new(ceap_params)
-      @ceap.save(validate: false)
-      file = params[:file_csv].tempfile.path
-      email = params[:email]
-      LeituraCsvJob.perform_later(file, @ceap, email)
-      redirect_to ceaps_path, notice: 'Seu arquivo está sendo lido em backdround, embreve voce poderar ver-lo'
+      if Ceap.where(exercicio: ceap_params[:exercicio]).first
+        redirect_to new_ceap_path, notice: "Já existe um Ceap com este Exercicio"
+      else
+        ceap_params[:total_gastos] = 0
+        @ceap = Ceap.new(ceap_params)
+        @ceap.save(validate: false)
+        file = params[:file_csv].tempfile.path
+        email = params[:email]
+        LeituraCsvJob.perform_later(file, @ceap, email)
+        redirect_to ceaps_path, notice: 'Seu arquivo está sendo lido em backdround, embreve voce poderar ver-lo'
+      end
     else
       redirect_to new_ceap_path, notice: 'Todos os campos sao obrigatorios'
     end

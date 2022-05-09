@@ -63,7 +63,7 @@ class LeituraCsvJob < ApplicationJob
       end
       ceap.total_gastos = ceap.total
       ceap.save(validate: false)
-      ConclusaoJob.perform(email, errors)
+      ConclusaoJob.perform_now(email, errors)
     end
   end
 end
