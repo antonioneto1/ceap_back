@@ -97,16 +97,20 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.action_mailer.default_url_options = { :host => 'portal.herokuapp.com' }
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.perform_deliveries = true
+
+  config.action_mailer.default_url_options = { host: Rails.application.secrets.domain }
+
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-      :address              => 'smtp.gmail.com',
-      :port                 => 587,
-      :domain               => 'gmail.com',
-      :user_name            => 'EMAIL_ADDRESS@gmail.com',
-      :password             => 'pass',
-      :authentication       => 'login',
-      :enable_starttls_auto => true
+    address: "smtp.gmail.com",
+    port: 587,
+    domain: Rails.application.secrets.domain,
+    user_name:  Rails.application.secrets.user_name,
+    password:  Rails.application.secrets.password,
+    authentication: Rails.application.secrets.authentication,
+    enable_starttls_auto: true
   }
 
   # Inserts middleware to perform automatic connection switching.

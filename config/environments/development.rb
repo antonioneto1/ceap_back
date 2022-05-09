@@ -34,7 +34,6 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.perform_caching = true
 
@@ -71,16 +70,21 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
-  config.action_mailer.default_url_options = { :host => 'IP ADDRESS HERE:3000' }
+
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.perform_deliveries = true
+
+  config.action_mailer.default_url_options = { host: Rails.application.secrets.domain }
+
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-      :address              => 'smtp.gmail.com',
-      :port                 => 587,
-      :domain               => 'gmail.com',
-      :user_name            => 'tonyxpk@gmail.com',
-      :password             => 'pass',
-      :authentication       => 'plain',
-      :enable_starttls_auto => true
+    address: "smtp.gmail.com",
+    port: 587,
+    domain: Rails.application.secrets.domain,
+    user_name:  Rails.application.secrets.user_name,
+    password:  Rails.application.secrets.password,
+    authentication: Rails.application.secrets.authentication,
+    enable_starttls_auto: true
   }
 
   # Uncomment if you wish to allow Action Cable access from any origin.
