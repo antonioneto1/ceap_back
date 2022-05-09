@@ -8,7 +8,6 @@
         <th>Ano do Exercicio</th>
         <th>Total Gastos</th>
         <th>Detalhes</th>
-        <th>Status</th>
         <th>Excluir</th>
         <th colspan="3"></th>
       </tr>
@@ -19,15 +18,14 @@
         <tr class="table-light">
           <td><%= ceap.exercicio %></td>
           <% if ceap.concluido? %>
-            <td><%= "R$: #{ceap.total_gastos}" %></td>
+            <td><%= Formatacao.real_format(ceap.total_gastos) %></td>
           <% else %>
             <td>R$: 0,00</td>
           <% end %>
-          <td><%= link_to 'Detalhes', ceap, class: "btn btn-info"%></td>
           <% if ceap.concluido? %>
-            <td><span class="btn btn-success" %>Concluido</td>
+            <td><%= link_to 'Concluido', ceap, class: "btn btn-success"%></td>
           <% else %>
-            <td><span class="btn btn-warning" %>Processando</td>
+            <td><%= link_to 'Processando', ceap, class: "btn btn-warning"%></td>
           <% end %>
           <td><%= link_to 'Apagar', ceap, class:"btn btn-danger",method: :delete, data: { confirm: 'Tem certeza?' } %></td>
         </tr>

@@ -24,7 +24,7 @@
 
   <p>
     <strong>Valor:</strong>
-    <%= @despesa.valor_formatado %>
+    <%= Formatacao.real_format(@despesa.valorLiquido.to_f)%>
   </p>
 
   <p>
@@ -39,7 +39,7 @@
   <% if @despesa.urlDocumento.present? %>
     <p>
       <strong>Link Documento:</strong>
-      <a href="<%= @despesa.urlDocumento %>">PDF</a>
+      <a target="_blank" href="<%= @despesa.urlDocumento %>">PDF</a>
     </p>
   <% end %>
 </div>

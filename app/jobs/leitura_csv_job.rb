@@ -10,8 +10,9 @@ class LeituraCsvJob < ApplicationJob
         r = r.split(";")
 
         next if r[5].nil? || (r[5] == "\"sgUF\"" || !r[5].include?("\"CE\""))
-        deputado = Deputado.where(id: JSON.parse(r[2])).first
+        deputado = Deputado.where(idDeputado: JSON.parse(r[2]), ceap_id: ceap.id).first
         unless deputado
+
           dados_deputado = {
             nomeParlamentar: JSON.parse(r[0]),
             cpf: JSON.parse(r[1]),
@@ -25,13 +26,12 @@ class LeituraCsvJob < ApplicationJob
             urlPhoto: "http://www.camara.leg.br/internet/deputado/bandep/#{JSON.parse(r[2])}.jpg"
           }
           deputado = Deputado.create(dados_deputado)
-          deputado.id = deputado.idDeputado
           deputado.ceap = ceap
           deputado.save(validate: false)
           deputados << deputado
         end
 
-        unless Despesa.where(idDocumento: JSON.parse(r[29]), deputado_id: JSON.parse(r[2])).first
+        unless Despesa.where(idDocumento: JSON.parse(r[29]), deputado_id: deputado.id).first
           dados_despesa = {
             deputado: deputado,
             fornecedor: JSON.parse(r[12]),

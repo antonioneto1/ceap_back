@@ -9,7 +9,7 @@
 
   <p>
     <strong>CPF:</strong>
-    <%= @deputado.mask_document(@deputado.cpf) %>
+    <%=Formatacao.mascara_documento(@deputado.cpf)%>
   </p>
 
   <p>
@@ -53,11 +53,13 @@
   </figure>
 </div>
 
+</br>
+
 <div class="container-fluid">
   <strong>Maior despesa:</strong>
   <p>
     <strong>Valor:</strong>
-    <%= "R$: #{@deputado.maior_despesa.valorLiquido.to_f}"%>
+    <%= Formatacao.real_format(@deputado.maior_despesa.valorLiquido.to_f)%>
   </p>
 
   <p>
@@ -66,6 +68,8 @@
   </p>
    
 </div>
+
+</br>
 
 <div class="container-fluid">
   <h1> Gastos</h1>
@@ -83,10 +87,10 @@
     <tbody>
       <% @deputado.despesas.each do |despesa| %>
         <tr class="table-light">
-          <td><%= "R$: #{despesa.valorLiquido.to_f}" %></td>
+          <td><%= Formatacao.real_format(despesa.valorLiquido.to_f) %></td>
           <td><%= despesa.dataEmissao.to_date %></td>
           <% if despesa.urlDocumento.present? %>
-            <td><a class="btn btn-primary" href="<%= despesa.urlDocumento %>">PDF</td>
+            <td><a target="_blank" class="btn btn-primary" href="<%= despesa.urlDocumento %>">PDF</td>
           <% else %>
             <td>Sem PDF</td>
           <% end %>
@@ -95,6 +99,5 @@
       <% end %>
     </tbody>
   </table>
+  <%= link_to 'Voltar', ceap_path(@deputado.ceap), class: "btn btn-info"%>
 </div>
-
-<%= link_to 'Voltar', ceap_path(@deputado.ceap), class: "btn btn-info"%>
