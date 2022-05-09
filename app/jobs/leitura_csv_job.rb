@@ -1,7 +1,7 @@
 class LeituraCsvJob < ApplicationJob
   queue_as :default
 
-  def perform(file, ceap)
+  def perform(file, ceap, email)
     deputados = []
     errors = []
     File.open(file).each do |r|
@@ -58,7 +58,6 @@ class LeituraCsvJob < ApplicationJob
       end  
     end
     if deputados.present?
-      email = 'antoniocavalcante1910@hotmail.com'
       deputados.each do |deputado|
         ceap.deputados << deputado
       end

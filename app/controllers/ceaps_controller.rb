@@ -19,22 +19,23 @@ class CeapsController < ApplicationController
 
   # POST /ceaps or /ceaps.json
   def create
-    if params[:file_csv].present? && ceap_params[:exercicio].present?
+    if params[:file_csv].present? && ceap_params[:exercicio].present? && params[:email].present?
       ceap_params[:total_gastos] = 0
       @ceap = Ceap.new(ceap_params)
       @ceap.save(validate: false)
       file = params[:file_csv].tempfile.path
-      LeituraCsvJob.perform_later(file, @ceap)
+      email = params[:email]
+      LeituraCsvJob.perform_later(file, @ceap, email)
       redirect_to ceaps_path, notice: 'Seu arquivo está sendo lido em backdround, embreve voce poderar ver-lo'
     else
-      redirect_to new_ceap_path, notice: 'O arquivo CSV e o E xercicio precisam está presentes'
+      redirect_to new_ceap_path, notice: 'Todos os campos sao obrigatorios'
     end
   end
 
   # DELETE /ceaps/1 or /ceaps/1.json
   def destroy
     DestroyExercicioJob.perform_later(@ceap)
-    redirect_to ceaps_url, notice: 'O exercicio está sendo exluido em backgount.'
+    redirect_to ceaps_url, notice: 'O exercicio está sendo exluido em background.'
   end
 
   private
@@ -50,6 +51,6 @@ class CeapsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def ceap_params
-      params.require(:ceap).permit(:exercicio, :total_gastos)
+      params.require(:ceap).permit(:exercicio, :total_gastos, :email)
     end
 end
