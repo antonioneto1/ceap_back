@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content = 'text/html; charset=UTF-8' http-equiv= 'Content-Type'/>
+  </head>
+  <body>
+    <% if @erros.any? %>
+      <h1>O arquivo foi carregado, porem alguns errors ocorreram em sua leitura.<h1>
+        <div class="container-fluid">
+        <h1> Erros</h1>
+        <table class="table table-dark table-striped">
+          <thead>
+            <tr>
+              <th>Mensagem de error</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @erros.each do |er| %>
+              <tr class="table-light">
+                <td><%= er %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    <% end %>
+  </body>
+</html>
