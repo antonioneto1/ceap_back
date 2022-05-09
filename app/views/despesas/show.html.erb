@@ -9,7 +9,7 @@
 
   <p>
     <strong>CNPJ/CPF:</strong>
-    <%= @despesa.mask_document(@despesa.cnpjCPF) %>
+    <%= Formatacao.mascara_documento(@despesa.cnpjCPF) %>
   </p>
 
   <p>

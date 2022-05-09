@@ -8,14 +8,4 @@ class Despesa < ApplicationRecord
   def mes_e_ano
     return "#{mes}/#{ano}"
   end
-
-  def mask_document(string)
-    return string if string.length == 14
-    string[0] = '*'
-    string[1] = '*'
-    string[2] = '*'
-    string[-1] = '*'
-    string[-2] = '*'
-    string
-  end
 end
