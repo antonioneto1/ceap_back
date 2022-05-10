@@ -1,3 +1,14 @@
+Informacoes importantes: 
+O campo de email é para informar para pessoa quando o processo for finalizado e alertar caso aconteca algum erro na leitura do arquivo.
+
+Ao tentar deployar o projeto no heroku, tive problemas com a versao do bootstrap, perdi bastante tempo tentando copilar o projeto e nao obtive sucesso. logo resolvi entregar para nao passr do prazo. 
+
+optei por usar o rank dos maiores gastos com os 3 maiores gastos e suas porcentagens mediante ao gasto total, mara melhor visualizar.
+
+Alguns erros apareciam na leitura do aquivo, errors relacionados aos caracteres em alguns campos, entao nao estou impedindo o carregamento do aquivo, mas deixo claro para quem fizer o upload do aquivo que ele foi carregado, porem com tem errors. 
+
+
+
 # Ranking dos gastos dos Deputados
 
 Estamos muito felizes que você tenha chegado nessa etapa do nosso processo seletivo, para essa fase, desejamos que você resolva um desafio. Nosso desafio consiste em analisar alguns dados disponibilizados pelo Câmara dos Deputados relativos aos gastos dos parlamentares. A ideia é descobrir quem, do seu estado, está gastando mais e exibir de forma resumida esses principais gastos.
