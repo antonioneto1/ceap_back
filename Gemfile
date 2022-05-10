@@ -6,7 +6,7 @@ ruby '2.7.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.5', '>= 6.1.5.1'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3', '~> 1.4'
+gem 'sqlite3', '~> 1.3', '>= 1.3.11'
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets
@@ -17,20 +17,14 @@ gem 'webpacker', '~> 5.0'
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
-gem 'slim-rails'
-gem 'ransack'
 gem 'bootstrap', '~> 5.1.3'
 gem 'jquery-rails'
 gem 'mimemagic', '~> 0.3.10'
-gem 'httparty'
 gem 'sidekiq', '>= 6.4.1'
 gem "paperclip"
 gem 'bootstrap-sass'
 gem 'glyphicons-rails'
 gem "font-awesome-rails"
-
-#gem 'apexcharts'
-#gem 'groupdate'
 
 gem "pg"
 
@@ -59,6 +53,12 @@ group :development do
   gem 'listen', '~> 3.3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem 'pg'
+end
+
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
 end
 
 group :test do
