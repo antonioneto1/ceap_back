@@ -12,11 +12,34 @@
 
 ActiveRecord::Schema.define(version: 2022_05_05_114643) do
 
-# Could not dump table "ceaps" because of following StandardError
-#   Unknown type 'has_many' for column 'deputados'
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
-# Could not dump table "deputados" because of following StandardError
-#   Unknown type '' for column 'despesas'
+  create_table "ceaps", force: :cascade do |t|
+    t.integer "exercicio"
+    t.float "total_gastos"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "deputados"
+  end
+
+  create_table "deputados", force: :cascade do |t|
+    t.string "nomeParlamentar"
+    t.string "cpf"
+    t.integer "idDeputado"
+    t.string "numeroCarteiraParlamentar"
+    t.integer "legislatura"
+    t.string "siglaUF"
+    t.string "siglaPartido"
+    t.integer "codigoLegislatura"
+    t.string "numeroDeputadoID"
+    t.string "urlPhoto"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "despesas"
+    t.bigint "ceap_id", null: false
+    t.index ["ceap_id"], name: "index_deputados_on_ceap_id"
+  end
 
   create_table "despesas", force: :cascade do |t|
     t.string "fornecedor"
@@ -35,7 +58,7 @@ ActiveRecord::Schema.define(version: 2022_05_05_114643) do
     t.string "urlDocumento"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "deputado_id", null: false
+    t.bigint "deputado_id", null: false
     t.index ["deputado_id"], name: "index_despesas_on_deputado_id"
   end
 

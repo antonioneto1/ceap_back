@@ -29,8 +29,10 @@ gem 'bootstrap-sass'
 gem 'glyphicons-rails'
 gem "font-awesome-rails"
 
-gem 'apexcharts'
-gem 'groupdate'
+#gem 'apexcharts'
+#gem 'groupdate'
+
+gem "pg"
 
 # Use Redis adapter to run Action Cable in production
  gem 'redis', '~> 4.0'
