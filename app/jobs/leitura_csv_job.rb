@@ -12,7 +12,6 @@ class LeituraCsvJob < ApplicationJob
         next if r[5].nil? || (r[5] == "\"sgUF\"" || !r[5].include?("\"CE\""))
         deputado = Deputado.where(idDeputado: JSON.parse(r[2]), ceap_id: ceap.id).first
         unless deputado
-
           dados_deputado = {
             nomeParlamentar: JSON.parse(r[0]),
             cpf: JSON.parse(r[1]),
