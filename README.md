@@ -1,7 +1,7 @@
 Informacoes importantes: 
 O campo de email é para informar para pessoa quando o processo for finalizado e alertar caso aconteca algum erro na leitura do arquivo.
 
-Ao tentar deployar o projeto no heroku, tive problemas com a versao do bootstrap, perdi bastante tempo tentando copilar o projeto e nao obtive sucesso. logo resolvi entregar para nao passr do prazo. 
+Ao tentar deployar o projeto no heroku, tive problemas com a versao do bootstrap, perdi bastante tempo tentando copilar o projeto, troquei versao do ruby, troquei configuracoes, tentei mudar versao de outras gens e nada resolveu, no final, nao conseguia copilar o arquivo em prod. Logo resolvi entregar para nao passar do prazo. 
 
 optei por usar o rank dos maiores gastos com os 3 maiores gastos e suas porcentagens mediante ao gasto total, mara melhor visualizar.
 
